@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="d-flex flex-row mt-5">
+            <div clas="col-3">
+                <lable class="me-3">Your Gold:</lable>
+            </div>
+            <div class="col-3 border border-dark" style="height:2rem;">
+                {{session['total_gold']}}
+            </div>
+        </div>
+        <div class="d-flex justify-content-around mt-5">
+            <div class="card bg-light text-dark">
+                <div class="card-body p-5" style="width: 18rem;">
+                    <form action="/process_money" method="post">
+                        <h2>Farm</h2>
+                        <p>(earn 10-20 gold)</p>
+                        <input type="hidden" name="location" value="farm" />
+                        <button class="btn btn-warning mt-4">Find Gold</button>
+                    </form>
+                </div>
+            </div>
+            <div class="card bg-light text-dark">
+                <div class="card-body p-5" style="width: 18rem;">
+                    <form action="/process_money" method="post">
+                        <h2>Cave</h2>
+                        <p>(earn 5-10 gold)</p>
+                        <input type="hidden" name="location" value="cave" />
+                        <button class="btn btn-warning mt-4">Find Gold</button>
+                    </form>
+                </div>
+            </div>            
+            <div class="card bg-light text-dark">
+                <div class="card-body p-5" style="width: 18rem;">
+                    <form action="/process_money" method="post">
+                        <h2>House</h2>
+                        <p>(earn 2-5 gold)</p>
+                        <input type="hidden" name="location" value="house" />
+                        <button class="btn btn-warning mt-4">Find Gold</button>
+                    </form>
+                </div>
+            </div>            
+            <div class="card bg-light text-dark">
+                <div class="card-body p-5" style="width: 18rem;">
+                    <form action="/process_money" method="post">
+                        <h2>Casino</h2>
+                        <p>(earn/takes 0-50 gold)</p>
+                        <input type="hidden" name="location" value="casino" />
+                        <button class="btn btn-warning mt-4">Find Gold</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div>
+            <a href="/reset" class="btn btn-dark my-4">Reset Gold</a>
+        </div>
+        <div>
+            <h5>Activities</h5>
+            <div class="border border-dark">
+                {{messages|safe}}
+            </div>
+        </div>
+
+
+    </div>
+    
+</body>
+</html>
